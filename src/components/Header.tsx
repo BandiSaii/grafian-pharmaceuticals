@@ -79,14 +79,14 @@ export function Header({ route, navigate }: HeaderProps) {
 
       {/* Main nav */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-28 md:h-36">
           {/* Logo (text "Grafian" intentionally removed per user request) */}
           <button
             onClick={() => handleNav('/')}
             className="flex items-center gap-2 shrink-0 transition-transform hover:scale-[1.02]"
             aria-label="Grafian Pharmaceuticals home"
           >
-            <Logo className="h-14 md:h-20 w-auto" priority />
+            <Logo className="h-20 md:h-28 w-auto" priority />
           </button>
 
           {/* Desktop nav */}
@@ -148,7 +148,7 @@ export function Header({ route, navigate }: HeaderProps) {
               <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white p-0">
                 <SheetHeader className="border-b border-grafian-blue-100 p-4">
                   <SheetTitle className="flex items-center justify-between">
-                    <Logo className="h-12 w-auto" />
+                    <Logo className="h-20 w-auto" />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col p-2">

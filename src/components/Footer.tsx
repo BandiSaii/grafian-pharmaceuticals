@@ -44,7 +44,7 @@ export function Footer({ route, navigate }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-4">
             <div className="rounded-2xl bg-white p-3 inline-block shadow-pharma">
-              <Logo className="h-16 w-auto" />
+              <Logo className="h-20 md:h-24 w-auto" />
             </div>
             <p className="mt-5 text-sm leading-relaxed text-slate-200/90 max-w-sm">
               {company.description}

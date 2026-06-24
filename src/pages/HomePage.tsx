@@ -89,7 +89,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               >
                 <div className="absolute -inset-6 rounded-full bg-grafian-blue-100/40 blur-2xl" />
                 <div className="relative rounded-3xl bg-white p-6 md:p-8 shadow-pharma-lg border border-grafian-blue-100">
-                  <Logo className="h-24 md:h-32 w-auto" priority />
+                  <Logo className="h-32 md:h-44 w-auto" priority />
                 </div>
               </motion.div>
 

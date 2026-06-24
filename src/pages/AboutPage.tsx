@@ -110,7 +110,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               <div className="relative">
                 <div className="absolute -inset-6 rounded-full bg-grafian-blue-100/50 blur-2xl" />
                 <div className="relative rounded-3xl bg-white p-8 shadow-pharma-lg border border-grafian-blue-100">
-                  <Logo className="h-40 md:h-56 w-auto" priority />
+                  <Logo className="h-48 md:h-64 w-auto" priority />
                 </div>
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
