@@ -87,10 +87,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-8"
               >
-                <div className="absolute -inset-6 rounded-full bg-grafian-blue-100/40 blur-2xl" />
-                <div className="relative rounded-3xl bg-white p-6 md:p-8 shadow-pharma-lg border border-grafian-blue-100">
-                  <Logo className="h-32 md:h-44 w-auto" priority />
-                </div>
+                <Logo className="h-36 md:h-48 w-auto" priority />
               </motion.div>
 
               <motion.div
@@ -240,7 +237,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
                 className="absolute -top-4 right-12 rounded-full bg-white shadow-pharma px-3 py-2 flex items-center gap-2"
               >
-                <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-8 w-8 object-contain rounded-full" />
+                <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-9 w-9 object-contain" />
                 <div className="text-[10px] font-bold text-grafian-blue-deep leading-tight pr-1">
                   WHO-GMP<br />Certified
                 </div>
@@ -490,7 +487,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
             <div className="grid grid-cols-2 gap-4">
               {certifications.map((c) => (
                 <div key={c.id} className="rounded-2xl bg-gradient-to-br from-grafian-blue-50 to-white p-5 border border-slate-100 shadow-pharma flex flex-col items-center text-center">
-                  <img src={c.image} alt={c.name} className="h-24 w-24 object-contain rounded-full mb-3" />
+                  <img src={c.image} alt={c.name} className="h-28 w-28 object-contain drop-shadow-md mb-3" />
                   <div className="text-sm font-bold text-slate-900">{c.name}</div>
                 </div>
               ))}

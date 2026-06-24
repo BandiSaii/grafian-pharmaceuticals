@@ -148,7 +148,7 @@ export function Header({ route, navigate }: HeaderProps) {
               <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white p-0">
                 <SheetHeader className="border-b border-grafian-blue-100 p-4">
                   <SheetTitle className="flex items-center justify-between">
-                    <Logo className="h-20 w-auto" />
+                    <Logo className="h-24 w-auto" />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col p-2">

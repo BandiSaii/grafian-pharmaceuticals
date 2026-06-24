@@ -83,12 +83,12 @@ export function CertificationsPage({ route, navigate }: CertificationsPageProps)
                 <div className="absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-grafian-blue-100/40 blur-3xl" />
 
                 <div className="relative">
-                  {/* Certification logo/badge */}
+                  {/* Certification logo/badge (transparent PNG) */}
                   <div className="inline-flex items-center justify-center mb-4">
                     <img
                       src={c.image}
                       alt={c.name}
-                      className="h-32 w-32 object-contain rounded-full bg-white p-1 shadow-pharma"
+                      className="h-36 w-36 object-contain drop-shadow-md"
                     />
                   </div>
 

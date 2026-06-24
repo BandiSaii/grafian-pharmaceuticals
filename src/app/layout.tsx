@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   creator: "Grafian Pharmaceuticals",
   publisher: "Grafian Pharmaceuticals",
   icons: {
-    icon: "/logo-white.png",
-    apple: "/logo-white.png",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "Grafian Pharmaceuticals | Premium Pharmaceutical Company",

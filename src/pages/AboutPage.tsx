@@ -108,10 +108,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               className="flex justify-center"
             >
               <div className="relative">
-                <div className="absolute -inset-6 rounded-full bg-grafian-blue-100/50 blur-2xl" />
-                <div className="relative rounded-3xl bg-white p-8 shadow-pharma-lg border border-grafian-blue-100">
-                  <Logo className="h-48 md:h-64 w-auto" priority />
-                </div>
+                <Logo className="h-56 md:h-72 w-auto" priority />
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -323,7 +320,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
             <div className="grid grid-cols-2 gap-4">
               {certifications.map((c) => (
                 <div key={c.id} className="rounded-2xl bg-gradient-to-br from-grafian-blue-50 to-white p-5 border border-slate-100 shadow-pharma flex flex-col items-center text-center">
-                  <img src={c.image} alt={c.name} className="h-24 w-24 object-contain rounded-full mb-3" />
+                  <img src={c.image} alt={c.name} className="h-28 w-28 object-contain drop-shadow-md mb-3" />
                   <div className="text-sm font-bold text-slate-900">{c.name}</div>
                 </div>
               ))}

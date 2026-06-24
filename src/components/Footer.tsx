@@ -43,9 +43,7 @@ export function Footer({ route, navigate }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <div className="rounded-2xl bg-white p-3 inline-block shadow-pharma">
-              <Logo className="h-20 md:h-24 w-auto" />
-            </div>
+            <Logo className="h-24 md:h-28 w-auto" />
             <p className="mt-5 text-sm leading-relaxed text-slate-200/90 max-w-sm">
               {company.description}
             </p>
@@ -145,14 +143,14 @@ export function Footer({ route, navigate }: FooterProps) {
         {/* Trust badges row */}
         <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
           <div className="flex items-center gap-3 text-xs">
-            <img src="/certificates/who-gmp.png" alt="WHO-GMP Certified" className="h-12 w-12 object-contain rounded-full bg-white p-0.5" />
+            <img src="/certificates/who-gmp.png" alt="WHO-GMP Certified" className="h-14 w-14 object-contain drop-shadow-md" />
             <div>
               <div className="font-semibold text-white">WHO-GMP</div>
               <div className="text-slate-300/80">Certified</div>
             </div>
           </div>
           <div className="flex items-center gap-3 text-xs">
-            <img src="/certificates/iso-9001.png" alt="ISO 9001:2015 Certified" className="h-12 w-12 object-contain rounded-full bg-white p-0.5" />
+            <img src="/certificates/iso-9001.png" alt="ISO 9001:2015 Certified" className="h-14 w-14 object-contain drop-shadow-md" />
             <div>
               <div className="font-semibold text-white">ISO 9001:2015</div>
               <div className="text-slate-300/80">Quality Management</div>

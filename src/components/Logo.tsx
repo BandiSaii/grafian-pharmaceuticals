@@ -10,38 +10,18 @@ interface LogoProps {
 
 /**
  * Grafian Pharmaceuticals logo.
- * Uses the processed PNG on white background.
- * `variant="dark"` -> for dark backgrounds (we still use the white-bg PNG, since the logo itself
- * has a green tree + orange text that pops on dark backgrounds too).
+ * Uses the transparent PNG (alpha channel) — just the green tree icon
+ * and orange "Grafian Pharmaceuticals™" text, no background fill.
+ * Sits naturally on any background color (white nav, dark footer, gradient hero, etc.).
  */
 export function Logo({ variant = 'light', className = '', priority = false }: LogoProps) {
-  // The processed logo has a white background — visible on both light and dark surfaces.
-  // For dark backgrounds we wrap it in a small white rounded card to maintain brand consistency.
-  if (variant === 'dark') {
-    return (
-      <div
-        className={`relative overflow-hidden rounded-2xl bg-white shadow-pharma ${className}`}
-        style={{ aspectRatio: '1280 / 853' }}
-      >
-        <Image
-          src="/logo-white.png"
-          alt="Grafian Pharmaceuticals"
-          fill
-          priority={priority}
-          sizes="(max-width: 768px) 220px, 280px"
-          className="object-contain p-1"
-        />
-      </div>
-    );
-  }
-
   return (
     <div
       className={`relative ${className}`}
-      style={{ aspectRatio: '1280 / 853' }}
+      style={{ aspectRatio: '1152 / 864' }}
     >
       <Image
-        src="/logo-white.png"
+        src="/logo.png"
         alt="Grafian Pharmaceuticals"
         fill
         priority={priority}
