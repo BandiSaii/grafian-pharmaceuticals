@@ -41,10 +41,10 @@ export function Footer({ route, navigate }: FooterProps) {
 
       <div className="container mx-auto px-4 py-14 md:py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-          {/* Brand — larger logo */}
+          {/* Brand — large logo */}
           <div className="lg:col-span-4">
-            <div className="rounded-2xl bg-white/95 p-4 inline-block shadow-pharma-lg">
-              <Logo className="h-24 md:h-28 w-auto" />
+            <div className="rounded-2xl bg-white/95 p-5 inline-block shadow-pharma-lg">
+              <Logo className="h-48 md:h-56 w-auto" />
             </div>
             <p className="mt-5 text-[13px] leading-relaxed text-slate-200/90 max-w-sm">
               {company.description}

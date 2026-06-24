@@ -18,14 +18,14 @@ export function Logo({ variant = 'light', className = '', priority = false }: Lo
   return (
     <div
       className={`relative ${className}`}
-      style={{ aspectRatio: '1152 / 864' }}
+      style={{ aspectRatio: '585 / 348' }}
     >
       <Image
         src="/logo.png"
         alt="Grafian Pharmaceuticals"
         fill
         priority={priority}
-        sizes="(max-width: 768px) 280px, 400px"
+        sizes="(max-width: 768px) 500px, 700px"
         className="object-contain"
       />
     </div>
