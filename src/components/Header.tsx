@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, ChevronRight, Phone } from 'lucide-react';
+import { Menu, X, Search, ChevronRight, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { Logo } from './Logo';
 import { type Route } from '@/lib/router';
 import { company } from '@/lib/company';
@@ -56,40 +56,41 @@ export function Header({ route, navigate }: HeaderProps) {
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-pharma border-b border-grafian-blue-100'
-          : 'bg-white border-b border-transparent'
+          : 'bg-white border-b border-grafian-blue-100/60'
       )}
     >
-      {/* Top utility strip */}
+      {/* Slim top utility strip — phone + email + certifications only (timings removed) */}
       <div className="hidden md:block bg-gradient-to-r from-grafian-blue-deep via-grafian-blue to-grafian-blue-mid text-white">
-        <div className="container mx-auto px-4 flex items-center justify-between h-9 text-xs">
+        <div className="container mx-auto px-4 flex items-center justify-between h-8 text-[12px]">
           <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5">
-              <Phone className="h-3 w-3" /> {company.phones.join('  •  ')}
-            </span>
-            <span className="opacity-90 hidden lg:inline">|</span>
-            <span className="hidden lg:flex items-center gap-1.5 opacity-90">{company.emails[0]}</span>
+            <a href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-1.5 hover:text-grafian-blue-light transition-colors">
+              <Phone className="h-3.5 w-3.5" /> {company.phones.join('  •  ')}
+            </a>
+            <span className="opacity-50 hidden lg:inline">|</span>
+            <a href={`mailto:${company.emails[0]}`} className="hidden lg:flex items-center gap-1.5 opacity-95 hover:text-grafian-blue-light transition-colors">
+              <Mail className="h-3.5 w-3.5" /> {company.emails[0]}
+            </a>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="opacity-90">WHO-GMP & ISO 9001:2015 Certified</span>
-            <span className="opacity-90">|</span>
-            <span className="opacity-90">{company.hours}</span>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="h-3.5 w-3.5 text-grafian-blue-light" />
+            <span className="opacity-95 font-medium">WHO-GMP & ISO 9001:2015 Certified</span>
           </div>
         </div>
       </div>
 
-      {/* Main nav */}
+      {/* Main nav — reduced height, larger logo, larger nav font */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-28 md:h-36">
-          {/* Logo (text "Grafian" intentionally removed per user request) */}
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo — increased size for better visibility */}
           <button
             onClick={() => handleNav('/')}
             className="flex items-center gap-2 shrink-0 transition-transform hover:scale-[1.02]"
             aria-label="Grafian Pharmaceuticals home"
           >
-            <Logo className="h-20 md:h-28 w-auto" priority />
+            <Logo className="h-16 md:h-20 w-auto" priority />
           </button>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — slightly larger font size (text-base) */}
           <div className="hidden lg:flex items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList>
@@ -99,7 +100,7 @@ export function Header({ route, navigate }: HeaderProps) {
                       onClick={() => handleNav(item.path)}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        'relative px-4 py-2 text-sm font-medium transition-colors rounded-md',
+                        'relative px-5 py-2.5 text-[15px] font-medium transition-colors rounded-md',
                         isActive(route.path, item.path)
                           ? 'text-grafian-blue-deep bg-grafian-blue-50'
                           : 'text-slate-700 hover:text-grafian-blue-deep hover:bg-grafian-blue-50/60'
@@ -109,7 +110,7 @@ export function Header({ route, navigate }: HeaderProps) {
                       {isActive(route.path, item.path) && (
                         <motion.span
                           layoutId="nav-active"
-                          className="absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 w-2/3 rounded-full bg-gradient-to-r from-grafian-blue-mid to-grafian-blue-light"
+                          className="absolute left-1/2 -translate-x-1/2 bottom-0.5 h-1 w-2/3 rounded-full bg-gradient-to-r from-grafian-blue-mid to-grafian-blue-light"
                         />
                       )}
                     </button>
@@ -120,7 +121,7 @@ export function Header({ route, navigate }: HeaderProps) {
 
             <button
               onClick={() => handleNav('/contact')}
-              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-5 py-2.5 text-sm font-semibold text-white shadow-pharma transition-all hover:shadow-pharma-lg hover:-translate-y-0.5"
+              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-6 py-3 text-[15px] font-semibold text-white shadow-pharma transition-all hover:shadow-pharma-lg hover:-translate-y-0.5"
             >
               Enquire Now
               <ChevronRight className="h-4 w-4" />
@@ -131,7 +132,7 @@ export function Header({ route, navigate }: HeaderProps) {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => handleNav('/products')}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
               aria-label="Search products"
             >
               <Search className="h-5 w-5" />
@@ -139,25 +140,25 @@ export function Header({ route, navigate }: HeaderProps) {
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <button
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
                   aria-label="Open menu"
                 >
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white p-0">
-                <SheetHeader className="border-b border-grafian-blue-100 p-4">
+                <SheetHeader className="border-b border-grafian-blue-100 p-5">
                   <SheetTitle className="flex items-center justify-between">
-                    <Logo className="h-24 w-auto" />
+                    <Logo className="h-20 w-auto" />
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col p-2">
+                <div className="flex flex-col p-3">
                   {navItems.map((item) => (
                     <button
                       key={item.path}
                       onClick={() => handleNav(item.path)}
                       className={cn(
-                        'flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium transition-colors',
+                        'flex items-center justify-between rounded-lg px-4 py-3.5 text-[15px] font-medium transition-colors',
                         isActive(route.path, item.path)
                           ? 'bg-grafian-blue-50 text-grafian-blue-deep'
                           : 'text-slate-700 hover:bg-grafian-blue-50/60'
@@ -169,22 +170,23 @@ export function Header({ route, navigate }: HeaderProps) {
                   ))}
                   <button
                     onClick={() => handleNav('/contact')}
-                    className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-5 py-3 text-sm font-semibold text-white shadow-pharma"
+                    className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-5 py-3 text-[15px] font-semibold text-white shadow-pharma"
                   >
                     Enquire Now
                     <ChevronRight className="h-4 w-4" />
                   </button>
 
-                  <div className="mt-6 rounded-xl bg-grafian-blue-50 p-4 text-xs text-slate-600">
-                    <div className="font-semibold text-grafian-blue-deep mb-1">Contact</div>
-                    <div className="space-y-1">
-                      <div className="flex items-start gap-2">
-                        <Phone className="h-3 w-3 mt-0.5 shrink-0" />
+                  <div className="mt-6 rounded-xl bg-grafian-blue-50 p-4 text-[13px] text-slate-600">
+                    <div className="font-semibold text-grafian-blue-deep mb-2">Quick Contact</div>
+                    <div className="space-y-1.5">
+                      <a href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-start gap-2 hover:text-grafian-blue-deep">
+                        <Phone className="h-4 w-4 mt-0.5 shrink-0 text-grafian-blue-mid" />
                         <span>{company.phones.join(', ')}</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="opacity-70 mt-0.5">{company.emails[0]}</span>
-                      </div>
+                      </a>
+                      <a href={`mailto:${company.emails[0]}`} className="flex items-start gap-2 hover:text-grafian-blue-deep break-all">
+                        <Mail className="h-4 w-4 mt-0.5 shrink-0 text-grafian-blue-mid" />
+                        <span>{company.emails[0]}</span>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -201,7 +203,7 @@ export function Header({ route, navigate }: HeaderProps) {
             animate={{ scaleX: 1 }}
             exit={{ scaleX: 0 }}
             transition={{ duration: 0.4 }}
-            className="h-0.5 origin-left bg-gradient-to-r from-grafian-blue-deep via-grafian-blue-mid to-grafian-blue-light"
+            className="h-1 origin-left bg-gradient-to-r from-grafian-blue-deep via-grafian-blue-mid to-grafian-blue-light"
           />
         )}
       </AnimatePresence>

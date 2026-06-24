@@ -81,62 +81,98 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
         </div>
       </section>
 
-      {/* CONTACT CARDS */}
-      <section className="bg-white py-10 md:py-14">
+      {/* CONTACT CARDS — premium cards with large gradient icons */}
+      <section className="bg-white py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Address */}
-            <div className="rounded-2xl bg-gradient-to-br from-grafian-blue-50/60 to-white p-6 border border-slate-100 shadow-pharma">
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-4 shadow-pharma">
-                <Building2 className="h-6 w-6" />
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0 }}
+              className="group relative rounded-3xl bg-gradient-to-br from-grafian-blue-50/80 via-white to-white p-7 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-all overflow-hidden"
+            >
+              <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-5 shadow-pharma">
+                  <Building2 className="h-8 w-8" />
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-grafian-blue-mid mb-1.5">Head Office</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5">{company.name}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {company.address.line1}, {company.address.line2}, {company.address.city} - {company.address.pincode}, {company.address.state}, {company.address.country}
+                </p>
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-grafian-blue-mid mb-1">Head Office</div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">{company.name}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {company.address.line1}, {company.address.line2}, {company.address.city} - {company.address.pincode}, {company.address.state}, {company.address.country}
-              </p>
-            </div>
+            </motion.div>
 
             {/* Phone */}
-            <div className="rounded-2xl bg-gradient-to-br from-grafian-blue-50/60 to-white p-6 border border-slate-100 shadow-pharma">
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-4 shadow-pharma">
-                <Phone className="h-6 w-6" />
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group relative rounded-3xl bg-gradient-to-br from-grafian-blue-50/80 via-white to-white p-7 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-all overflow-hidden"
+            >
+              <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-5 shadow-pharma">
+                  <Phone className="h-8 w-8" />
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-grafian-blue-mid mb-1.5">Call Us</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5">Phone</h3>
+                <div className="space-y-1.5">
+                  {company.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block text-sm text-slate-700 hover:text-grafian-blue-deep font-semibold transition-colors">
+                      {p}
+                    </a>
+                  ))}
+                </div>
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-grafian-blue-mid mb-1">Call Us</div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Phone</h3>
-              <div className="space-y-1">
-                {company.phones.map((p) => (
-                  <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block text-sm text-slate-700 hover:text-grafian-blue-deep font-medium">
-                    {p}
+            </motion.div>
+
+            {/* Email */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group relative rounded-3xl bg-gradient-to-br from-grafian-blue-50/80 via-white to-white p-7 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-all overflow-hidden"
+            >
+              <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-5 shadow-pharma">
+                  <Mail className="h-8 w-8" />
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-grafian-blue-mid mb-1.5">Email Us</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5">Email</h3>
+                {company.emails.map((e) => (
+                  <a key={e} href={`mailto:${e}`} className="block text-sm text-slate-700 hover:text-grafian-blue-deep font-semibold transition-colors break-all">
+                    {e}
                   </a>
                 ))}
               </div>
-            </div>
-
-            {/* Email */}
-            <div className="rounded-2xl bg-gradient-to-br from-grafian-blue-50/60 to-white p-6 border border-slate-100 shadow-pharma">
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-4 shadow-pharma">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-grafian-blue-mid mb-1">Email Us</div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Email</h3>
-              {company.emails.map((e) => (
-                <a key={e} href={`mailto:${e}`} className="block text-sm text-slate-700 hover:text-grafian-blue-deep font-medium break-all">
-                  {e}
-                </a>
-              ))}
-            </div>
+            </motion.div>
 
             {/* Hours */}
-            <div className="rounded-2xl bg-gradient-to-br from-grafian-blue-50/60 to-white p-6 border border-slate-100 shadow-pharma">
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-4 shadow-pharma">
-                <Clock className="h-6 w-6" />
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="group relative rounded-3xl bg-gradient-to-br from-grafian-blue-50/80 via-white to-white p-7 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-all overflow-hidden"
+            >
+              <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-5 shadow-pharma">
+                  <Clock className="h-8 w-8" />
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-grafian-blue-mid mb-1.5">Working Hours</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5">Office Timing</h3>
+                <p className="text-sm text-slate-600 font-medium">{company.hours}</p>
+                <p className="text-xs text-slate-400 mt-1.5">Sunday: Closed</p>
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-grafian-blue-mid mb-1">Working Hours</div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">Office Timing</h3>
-              <p className="text-sm text-slate-600">{company.hours}</p>
-              <p className="text-xs text-slate-400 mt-1">Sunday: Closed</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

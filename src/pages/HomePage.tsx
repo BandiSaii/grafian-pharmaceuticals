@@ -235,10 +235,12 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 right-12 rounded-full bg-white shadow-pharma px-3 py-2 flex items-center gap-2"
+                className="absolute -top-6 right-12 rounded-2xl bg-white shadow-pharma-lg px-4 py-3 flex items-center gap-3 border border-grafian-blue-100"
               >
-                <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-9 w-9 object-contain" />
-                <div className="text-[10px] font-bold text-grafian-blue-deep leading-tight pr-1">
+                <div className="h-12 w-12 rounded-full bg-white p-1 shadow-pharma flex items-center justify-center shrink-0">
+                  <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-full w-full object-contain" />
+                </div>
+                <div className="text-[11px] font-bold text-grafian-blue-deep leading-tight pr-1">
                   WHO-GMP<br />Certified
                 </div>
               </motion.div>
@@ -404,13 +406,16 @@ export function HomePage({ route, navigate }: HomePageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="relative rounded-2xl bg-white p-6 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-shadow"
+                  className="group relative rounded-2xl bg-white p-7 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-all overflow-hidden"
                 >
-                  <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-4 shadow-pharma">
-                    <Icon className="h-7 w-7" />
+                  <div className="absolute -top-10 -right-10 h-24 w-24 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-grafian-blue-deep to-grafian-blue-mid text-white flex items-center justify-center mb-5 shadow-pharma">
+                      <Icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2.5">{v.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{v.text}</p>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">{v.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{v.text}</p>
                 </motion.div>
               );
             })}
@@ -484,11 +489,15 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               {certifications.map((c) => (
-                <div key={c.id} className="rounded-2xl bg-gradient-to-br from-grafian-blue-50 to-white p-5 border border-slate-100 shadow-pharma flex flex-col items-center text-center">
-                  <img src={c.image} alt={c.name} className="h-28 w-28 object-contain drop-shadow-md mb-3" />
+                <div key={c.id} className="group relative rounded-2xl bg-gradient-to-br from-grafian-blue-50 to-white p-6 border border-slate-100 shadow-pharma hover:shadow-pharma-lg transition-shadow flex flex-col items-center text-center overflow-hidden">
+                  <div className="absolute -top-10 -right-10 h-24 w-24 rounded-full bg-grafian-blue-100/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative h-24 w-24 rounded-full bg-white shadow-pharma p-2 mb-4 flex items-center justify-center">
+                    <img src={c.image} alt={c.name} className="h-full w-full object-contain drop-shadow-md" />
+                  </div>
                   <div className="text-sm font-bold text-slate-900">{c.name}</div>
+                  <div className="text-[10px] text-grafian-blue-mid font-semibold uppercase tracking-wider mt-1">Certified</div>
                 </div>
               ))}
             </div>
