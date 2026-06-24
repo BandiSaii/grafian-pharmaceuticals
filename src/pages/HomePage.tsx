@@ -87,7 +87,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-8"
               >
-                <Logo className="h-36 md:h-48 w-auto" priority />
+                <Logo className="h-44 md:h-56 w-auto" priority />
               </motion.div>
 
               <motion.div

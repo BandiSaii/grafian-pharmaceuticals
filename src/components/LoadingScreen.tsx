@@ -38,7 +38,7 @@ export function LoadingScreen({ show }: LoadingScreenProps) {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="animate-logo-entrance"
             >
-              <Logo className="h-44 md:h-64 w-auto" priority />
+              <Logo className="h-52 md:h-72 w-auto" priority />
             </motion.div>
 
             <motion.div

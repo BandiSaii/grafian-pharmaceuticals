@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Heart, Droplet, Wind, Pill, Shield, Sparkles, Leaf, ArrowRight, MapPin, Phone, Mail, Clock, ShieldCheck, Stethoscope } from 'lucide-react';
+import { Heart, Droplet, Wind, Pill, Shield, Sparkles, Leaf, ArrowRight, MapPin, Phone, Mail, ShieldCheck, Stethoscope } from 'lucide-react';
 import { Logo } from './Logo';
 import { company } from '@/lib/company';
 import { categoryOrder, type ProductCategory } from '@/lib/products';
@@ -44,7 +44,7 @@ export function Footer({ route, navigate }: FooterProps) {
           {/* Brand — larger logo */}
           <div className="lg:col-span-4">
             <div className="rounded-2xl bg-white/95 p-4 inline-block shadow-pharma-lg">
-              <Logo className="h-20 md:h-24 w-auto" />
+              <Logo className="h-24 md:h-28 w-auto" />
             </div>
             <p className="mt-5 text-[13px] leading-relaxed text-slate-200/90 max-w-sm">
               {company.description}
@@ -140,12 +140,6 @@ export function Footer({ route, navigate }: FooterProps) {
                 <a href={`mailto:${company.emails[0]}`} className="hover:text-white break-all pt-1.5">
                   {company.emails[0]}
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="h-9 w-9 rounded-lg bg-white/10 backdrop-blur flex items-center justify-center shrink-0">
-                  <Clock className="h-4.5 w-4.5 text-grafian-blue-light" />
-                </div>
-                <span className="pt-1.5">{company.hours}</span>
               </li>
             </ul>
           </div>

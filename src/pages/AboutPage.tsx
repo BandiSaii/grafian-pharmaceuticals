@@ -108,7 +108,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               className="flex justify-center"
             >
               <div className="relative">
-                <Logo className="h-56 md:h-72 w-auto" priority />
+                <Logo className="h-64 md:h-80 w-auto" priority />
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}

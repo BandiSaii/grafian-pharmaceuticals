@@ -25,7 +25,7 @@ export function Logo({ variant = 'light', className = '', priority = false }: Lo
         alt="Grafian Pharmaceuticals"
         fill
         priority={priority}
-        sizes="(max-width: 768px) 240px, 320px"
+        sizes="(max-width: 768px) 280px, 400px"
         className="object-contain"
       />
     </div>

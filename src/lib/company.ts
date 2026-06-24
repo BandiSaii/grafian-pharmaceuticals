@@ -17,7 +17,6 @@ export const company = {
   emails: ['grafianpharma@yahoo.com'],
   mapQuery: 'Ramanthapur, Hyderabad, Telangana 500013',
   whatsapp: '916300175878', // WhatsApp number with country code, no +
-  hours: 'Mon – Sat: 9:30 AM – 7:00 PM',
   established: '2023',
   social: {
     facebook: '#',
