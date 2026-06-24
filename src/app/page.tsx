@@ -19,9 +19,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   // First-impression loading screen: shows ONLY the logo on a white background.
-  // User requested: "When i open the website that the should appear first"
+  // Fast 1-second intro — attractive but doesn't make users wait.
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2200);
+    const t = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(t);
   }, []);
 

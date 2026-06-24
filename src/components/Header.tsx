@@ -59,38 +59,39 @@ export function Header({ route, navigate }: HeaderProps) {
           : 'bg-white border-b border-grafian-blue-100/60'
       )}
     >
-      {/* Slim top utility strip — phone + email + certifications only (timings removed) */}
+      {/* Slim top utility strip — phone + email + certifications only */}
       <div className="hidden md:block bg-gradient-to-r from-grafian-blue-deep via-grafian-blue to-grafian-blue-mid text-white">
-        <div className="container mx-auto px-4 flex items-center justify-between h-8 text-[12px]">
+        <div className="container mx-auto px-4 flex items-center justify-between h-7 text-[12px]">
           <div className="flex items-center gap-5">
             <a href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-1.5 hover:text-grafian-blue-light transition-colors">
-              <Phone className="h-3.5 w-3.5" /> {company.phones.join('  •  ')}
+              <Phone className="h-3 w-3" /> {company.phones.join('  •  ')}
             </a>
             <span className="opacity-50 hidden lg:inline">|</span>
             <a href={`mailto:${company.emails[0]}`} className="hidden lg:flex items-center gap-1.5 opacity-95 hover:text-grafian-blue-light transition-colors">
-              <Mail className="h-3.5 w-3.5" /> {company.emails[0]}
+              <Mail className="h-3 w-3" /> {company.emails[0]}
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-3.5 w-3.5 text-grafian-blue-light" />
+            <ShieldCheck className="h-3 w-3 text-grafian-blue-light" />
             <span className="opacity-95 font-medium">WHO-GMP & ISO 9001:2015 Certified</span>
           </div>
         </div>
       </div>
 
-      {/* Main nav — large logo for stronger branding */}
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-52 md:h-72">
-          {/* Logo — significantly increased size for better visibility */}
+      {/* Main nav — compact height, logo fills most of the header */}
+      <div className="container mx-auto px-3">
+        <div className="flex items-center justify-between h-20 md:h-24 gap-4">
+          {/* Logo — fills 85% of header height, minimal padding */}
           <button
             onClick={() => handleNav('/')}
-            className="flex items-center gap-2 shrink-0 max-w-[80%] md:max-w-[65%] transition-transform hover:scale-[1.02]"
+            className="flex items-center shrink-0 transition-transform hover:scale-[1.02]"
             aria-label="Grafian Pharmaceuticals home"
           >
-            <Logo className="h-48 md:h-64 w-auto" priority />
+            {/* Logo height = header height minus small padding. h-17 = 68px, h-21 = 84px */}
+            <Logo className="h-[68px] md:h-[84px] w-auto" priority />
           </button>
 
-          {/* Desktop nav — slightly larger font size (text-base) */}
+          {/* Desktop nav — compact, well-aligned with logo center */}
           <div className="hidden lg:flex items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList>
@@ -100,7 +101,7 @@ export function Header({ route, navigate }: HeaderProps) {
                       onClick={() => handleNav(item.path)}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        'relative px-5 py-2.5 text-[15px] font-medium transition-colors rounded-md',
+                        'relative px-4 py-2 text-[15px] font-medium transition-colors rounded-md',
                         isActive(route.path, item.path)
                           ? 'text-grafian-blue-deep bg-grafian-blue-50'
                           : 'text-slate-700 hover:text-grafian-blue-deep hover:bg-grafian-blue-50/60'
@@ -121,7 +122,7 @@ export function Header({ route, navigate }: HeaderProps) {
 
             <button
               onClick={() => handleNav('/contact')}
-              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-6 py-3 text-[15px] font-semibold text-white shadow-pharma transition-all hover:shadow-pharma-lg hover:-translate-y-0.5"
+              className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-5 py-2.5 text-[14px] font-semibold text-white shadow-pharma transition-all hover:shadow-pharma-lg hover:-translate-y-0.5"
             >
               Enquire Now
               <ChevronRight className="h-4 w-4" />
@@ -132,7 +133,7 @@ export function Header({ route, navigate }: HeaderProps) {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => handleNav('/products')}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
               aria-label="Search products"
             >
               <Search className="h-5 w-5" />
@@ -140,16 +141,16 @@ export function Header({ route, navigate }: HeaderProps) {
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <button
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-grafian-blue-50 text-grafian-blue-deep"
                   aria-label="Open menu"
                 >
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white p-0">
-                <SheetHeader className="border-b border-grafian-blue-100 p-5">
+                <SheetHeader className="border-b border-grafian-blue-100 p-4">
                   <SheetTitle className="flex items-center justify-between">
-                    <Logo className="h-48 w-auto" />
+                    <Logo className="h-[68px] w-auto" />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col p-3">
@@ -158,7 +159,7 @@ export function Header({ route, navigate }: HeaderProps) {
                       key={item.path}
                       onClick={() => handleNav(item.path)}
                       className={cn(
-                        'flex items-center justify-between rounded-lg px-4 py-3.5 text-[15px] font-medium transition-colors',
+                        'flex items-center justify-between rounded-lg px-4 py-3 text-[15px] font-medium transition-colors',
                         isActive(route.path, item.path)
                           ? 'bg-grafian-blue-50 text-grafian-blue-deep'
                           : 'text-slate-700 hover:bg-grafian-blue-50/60'
@@ -176,7 +177,7 @@ export function Header({ route, navigate }: HeaderProps) {
                     <ChevronRight className="h-4 w-4" />
                   </button>
 
-                  <div className="mt-6 rounded-xl bg-grafian-blue-50 p-4 text-[13px] text-slate-600">
+                  <div className="mt-5 rounded-xl bg-grafian-blue-50 p-4 text-[13px] text-slate-600">
                     <div className="font-semibold text-grafian-blue-deep mb-2">Quick Contact</div>
                     <div className="space-y-1.5">
                       <a href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-start gap-2 hover:text-grafian-blue-deep">
