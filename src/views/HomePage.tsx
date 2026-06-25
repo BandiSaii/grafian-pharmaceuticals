@@ -73,13 +73,27 @@ export function HomePage({ route, navigate }: HomePageProps) {
       <section
         className="relative overflow-hidden gradient-hero-radial"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 65%), url(/uploads/manifact.jpg)`,
+          backgroundImage:
+            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(241,245,249,0.95) 35%, rgba(241,245,249,0.8) 65%, rgba(255,255,255,0.6) 100%)",
           backgroundSize: 'cover',
           backgroundPosition: 'center right',
           backgroundRepeat: 'no-repeat',
         }}
       >
         {/* Decorative background */}
+        <div className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url('/uploads/pasted_image_1782310779361.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center right',
+              opacity: 0.11,
+              filter: 'contrast(0.85) brightness(1.05) blur(1px)',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/0" />
+        </div>
         <div className="pointer-events-none absolute inset-0 pattern-grid opacity-60" />
         <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-grafian-blue-200/30 blur-3xl animate-blob" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-grafian-blue-100/40 blur-3xl animate-blob" style={{ animationDelay: '3s' }} />
@@ -184,7 +198,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, -14, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-20 left-4 w-70 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
+                className="absolute top-20 left-4 w-[280px] rounded-3xl glass-card p-5 border border-white/70 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
@@ -204,7 +218,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute top-[220px] right-0 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
+                className="absolute top-[220px] right-0 w-72 rounded-3xl glass-card p-5 border border-white/70 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center">
@@ -224,7 +238,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                className="absolute top-[400px] left-4 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
+                className="absolute top-[400px] left-4 w-72 rounded-3xl glass-card p-5 border border-white/70 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
@@ -244,7 +258,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-0 right-25 rounded-2xl bg-white shadow-pharma-lg px-4 py-3 flex items-center gap-3 border border-grafian-blue-100 z-10"
+                className="absolute top-0 right-8 rounded-3xl glass-card px-4 py-3 flex items-center gap-3 border border-white/70 z-10"
               >
                 <div className="h-12 w-12 rounded-full bg-white p-1 shadow-pharma flex items-center justify-center shrink-0">
                   <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-full w-full object-contain" />

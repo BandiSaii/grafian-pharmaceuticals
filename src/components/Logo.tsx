@@ -21,7 +21,7 @@ export function Logo({ variant = 'light', className = '', priority = false }: Lo
       style={{ aspectRatio: '585 / 348' }}
     >
       <Image
-        src="/logo.png"
+        src="/logo-white.png"
         alt="Grafian Pharmaceuticals"
         fill
         priority={priority}

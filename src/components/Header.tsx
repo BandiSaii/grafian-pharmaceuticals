@@ -67,7 +67,7 @@ export function Header({ route, navigate }: HeaderProps) {
               <Phone className="h-3 w-3" /> {company.phones.join('  •  ')}
             </a>
             <span className="opacity-50 hidden lg:inline">|</span>
-            <a href={`mailto:${company.emails[0]}`} className="hidden lg:flex items-center gap-1.5 opacity-95 hover:text-grafian-blue-light transition-colors">
+            <a href={`mailto:${company.emails[0]}`} className="flex items-center gap-1.5 opacity-95 hover:text-grafian-blue-light transition-colors">
               <Mail className="h-3 w-3" /> {company.emails[0]}
             </a>
           </div>

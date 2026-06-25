@@ -94,7 +94,7 @@ const productImageFiles = [
 const productImageLookup = new Map<string, string>(
   productImageFiles.map((fileName) => {
     const baseName = fileName.replace(/\.[^/.]+$/, '');
-    return [normalizeProductImageKey(baseName), `/uploads/medicin/medicin pics/${fileName}`] as const;
+    return [normalizeProductImageKey(baseName), encodeURI(`/uploads/medicin/medicin pics/${fileName}`)] as const;
   })
 );
 
