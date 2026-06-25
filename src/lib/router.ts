@@ -18,8 +18,11 @@ export interface Route {
   params: Record<string, string>;
 }
 
+/** Default route — used for SSR and the very first client render to avoid hydration mismatch. */
+const DEFAULT_ROUTE: Route = { path: '/', params: {} };
+
 function parseHash(): Route {
-  if (typeof window === 'undefined') return { path: '/', params: {} };
+  if (typeof window === 'undefined') return DEFAULT_ROUTE;
   const raw = window.location.hash.replace(/^#/, '');
   const [pathPart, queryPart] = raw.split('?');
   const path = pathPart || '/';
@@ -33,11 +36,13 @@ function parseHash(): Route {
 }
 
 export function useRouter() {
-  // Lazy initial state so the very first render already reflects the hash (if any).
-  const [route, setRoute] = useState<Route>(() => parseHash());
+  // IMPORTANT: Always initialize with DEFAULT_ROUTE so that the server-rendered
+  // HTML matches the very first client render (avoids React hydration errors).
+  // We then sync to the actual hash AFTER hydration inside useEffect.
+  const [route, setRoute] = useState<Route>(DEFAULT_ROUTE);
 
   useEffect(() => {
-    // Sync state once on mount in case the lazy init was SSR default.
+    // Sync to the real hash now that we're mounted on the client.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setRoute(parseHash());
 
