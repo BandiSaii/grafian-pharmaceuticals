@@ -160,15 +160,17 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
       {/* FORM + MAP */}
       <section className="bg-gradient-to-b from-grafian-blue-50/40 to-white py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="rounded-3xl bg-white border border-slate-100 shadow-pharma-lg p-7 md:p-8"
-            >
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* LEFT COLUMN: Form + Prefer to Chat */}
+            <div className="lg:col-span-1 flex flex-col gap-6">
+              {/* Form */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-3xl bg-white border border-slate-100 shadow-pharma-lg p-7 md:p-8"
+              >
               <div className="mb-6">
                 <div className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-grafian-blue-mid mb-2">
                   Send Us a Message
@@ -270,15 +272,42 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
                   By submitting this form, you agree to be contacted by {company.name} regarding your enquiry.
                 </p>
               </form>
-            </motion.div>
+              </motion.div>
 
-            {/* Map + WhatsApp CTA */}
+              {/* Prefer to Chat Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="rounded-3xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-7 text-white shadow-pharma-lg relative overflow-hidden"
+              >
+                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-white/10 blur-3xl" />
+                <div className="relative">
+                  <MessageCircle className="h-9 w-9 mb-3" />
+                  <h3 className="text-xl font-bold mb-2">Prefer to chat?</h3>
+                  <p className="text-sm text-white/90 leading-relaxed mb-4">
+                    Message us on WhatsApp for instant responses during working hours. Our team usually replies within minutes.
+                  </p>
+                  <a
+                    href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello ${company.name}, I would like to know more about your products.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-white text-[#128C7E] px-5 py-2.5 text-sm font-semibold shadow-pharma hover:bg-white/90 transition-colors"
+                  >
+                    Chat on WhatsApp <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* RIGHT COLUMN: Map + For Healthcare Professionals */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="lg:col-span-2 flex flex-col gap-6"
             >
               <div className="rounded-3xl overflow-hidden border border-slate-100 shadow-pharma-lg bg-white">
                 <div className="p-5 border-b border-slate-100">
@@ -319,28 +348,14 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
                 </div>
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="rounded-3xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-7 text-white shadow-pharma-lg relative overflow-hidden">
-                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-white/10 blur-3xl" />
-                <div className="relative">
-                  <MessageCircle className="h-9 w-9 mb-3" />
-                  <h3 className="text-xl font-bold mb-2">Prefer to chat?</h3>
-                  <p className="text-sm text-white/90 leading-relaxed mb-4">
-                    Message us on WhatsApp for instant responses during working hours. Our team usually replies within minutes.
-                  </p>
-                  <a
-                    href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello ${company.name}, I would like to know more about your products.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-white text-[#128C7E] px-5 py-2.5 text-sm font-semibold shadow-pharma hover:bg-white/90 transition-colors"
-                  >
-                    Chat on WhatsApp <ChevronRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Quick CTA */}
-              <div className="rounded-3xl bg-gradient-to-br from-grafian-blue-deep via-grafian-blue to-grafian-blue-mid p-7 text-white shadow-pharma-lg">
+              {/* For Healthcare Professionals Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="rounded-3xl bg-gradient-to-br from-grafian-blue-deep via-grafian-blue to-grafian-blue-mid p-7 text-white shadow-pharma-lg"
+              >
                 <h3 className="text-lg font-bold mb-2">For Healthcare Professionals</h3>
                 <p className="text-sm text-slate-100/90 leading-relaxed mb-4">
                   Get our complete product catalogue, visual aids, samples and full prescribing information delivered to your clinic.
@@ -351,7 +366,7 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
                 >
                   Browse Products <ChevronRight className="h-4 w-4" />
                 </button>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -359,3 +374,5 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
     </div>
   );
 }
+
+export default ContactPage;

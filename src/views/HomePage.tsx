@@ -70,13 +70,21 @@ export function HomePage({ route, navigate }: HomePageProps) {
   return (
     <div className="flex flex-col">
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden gradient-hero-radial">
+      <section
+        className="relative overflow-hidden gradient-hero-radial"
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 65%), url(/uploads/manifact.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center right',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         {/* Decorative background */}
         <div className="pointer-events-none absolute inset-0 pattern-grid opacity-60" />
         <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-grafian-blue-200/30 blur-3xl animate-blob" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-grafian-blue-100/40 blur-3xl animate-blob" style={{ animationDelay: '3s' }} />
 
-        <div className="container mx-auto px-4 pt-10 md:pt-16 pb-16 md:pb-24 relative">
+        <div className="container mx-auto px-4 pt-6 md:pt-10 pb-16 md:pb-24 relative">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Left: Logo + headline */}
             <div className="flex flex-col items-start text-left">
@@ -87,7 +95,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-8"
               >
-                <Logo className="h-96 md:h-[32rem] w-auto" priority />
+                <Logo className="h-64 md:h-80 w-auto" priority />
               </motion.div>
 
               <motion.div
@@ -164,18 +172,19 @@ export function HomePage({ route, navigate }: HomePageProps) {
               </motion.div>
             </div>
 
-            {/* Right: Floating cards composition */}
+            {/* Right: Floating cards composition with background image */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.9 }}
               className="relative hidden lg:block h-[520px]"
             >
-              {/* Main floating card 1 */}
+
+              {/* Main floating card 1 - Cardiac Care - Left Column */}
               <motion.div
                 animate={{ y: [0, -14, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-4 left-4 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100"
+                className="absolute top-20 left-4 w-70 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
@@ -191,11 +200,11 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 </div>
               </motion.div>
 
-              {/* Floating card 2 */}
+              {/* Floating card 2 - Diabetic Care - Right Column Below WHO-GMP */}
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute top-44 right-0 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100"
+                className="absolute top-[220px] right-0 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center">
@@ -211,11 +220,11 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 </div>
               </motion.div>
 
-              {/* Floating card 3 */}
+              {/* Floating card 3 - Multivitamins - Left Column Below Cardiac Care */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                className="absolute bottom-6 left-12 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100"
+                className="absolute top-[400px] left-4 w-72 rounded-2xl bg-white shadow-pharma-lg p-5 border border-grafian-blue-100 z-10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
@@ -231,11 +240,11 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 </div>
               </motion.div>
 
-              {/* Trust badge floating */}
+              {/* Trust badge floating - WHO-GMP Certified - Right Column Top */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-6 right-12 rounded-2xl bg-white shadow-pharma-lg px-4 py-3 flex items-center gap-3 border border-grafian-blue-100"
+                className="absolute top-0 right-25 rounded-2xl bg-white shadow-pharma-lg px-4 py-3 flex items-center gap-3 border border-grafian-blue-100 z-10"
               >
                 <div className="h-12 w-12 rounded-full bg-white p-1 shadow-pharma flex items-center justify-center shrink-0">
                   <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-full w-full object-contain" />
@@ -589,3 +598,5 @@ export function HomePage({ route, navigate }: HomePageProps) {
     </div>
   );
 }
+
+export default HomePage;

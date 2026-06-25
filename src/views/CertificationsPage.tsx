@@ -188,3 +188,5 @@ export function CertificationsPage({ route, navigate }: CertificationsPageProps)
     </div>
   );
 }
+
+export default CertificationsPage;

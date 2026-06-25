@@ -6,12 +6,12 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { LoadingScreen } from '@/components/LoadingScreen';
-import { HomePage } from '@/pages/HomePage';
-import { AboutPage } from '@/pages/AboutPage';
-import { ProductsPage } from '@/pages/ProductsPage';
-import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
-import { CertificationsPage } from '@/pages/CertificationsPage';
-import { ContactPage } from '@/pages/ContactPage';
+import { HomePage } from '@/views/HomePage';
+import { AboutPage } from '@/views/AboutPage';
+import { ProductsPage } from '@/views/ProductsPage';
+import { ProductDetailsPage } from '@/views/ProductDetailsPage';
+import { CertificationsPage } from '@/views/CertificationsPage';
+import { ContactPage } from '@/views/ContactPage';
 import { Toaster } from 'sonner';
 
 export default function Home() {

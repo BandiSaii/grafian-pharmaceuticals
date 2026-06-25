@@ -303,3 +303,5 @@ export function ProductsPage({ route, navigate }: ProductsPageProps) {
     </div>
   );
 }
+
+export default ProductsPage;

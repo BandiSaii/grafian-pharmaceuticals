@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -144,47 +145,59 @@ export function ProductDetailsPage({ route, navigate }: ProductDetailsPageProps)
               className="lg:sticky lg:top-32"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-pharma-lg border border-slate-100">
-                <div
-                  className="aspect-[5/4] relative"
-                  style={{
-                    background: `linear-gradient(135deg, ${product.cardColor} 0%, ${product.cardColor2} 100%)`,
-                  }}
-                >
+                {product.image ? (
+                  <div className="aspect-[5/4] relative bg-white">
+                    <Image
+                      src={product.image}
+                      alt={product.imageAlt ?? product.brandName}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                ) : (
                   <div
-                    className="absolute inset-0 opacity-[0.08]"
+                    className="aspect-[5/4] relative"
                     style={{
-                      backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1.5px)',
-                      backgroundSize: '14px 14px',
+                      background: `linear-gradient(135deg, ${product.cardColor} 0%, ${product.cardColor2} 100%)`,
                     }}
-                  />
-                  <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
-                  <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+                  >
+                    <div
+                      className="absolute inset-0 opacity-[0.08]"
+                      style={{
+                        backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1.5px)',
+                        backgroundSize: '14px 14px',
+                      }}
+                    />
+                    <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
+                    <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
 
-                  {/* Category + Rx */}
-                  <div className="absolute top-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-grafian-blue-deep shadow-sm">
-                    <Icon className="h-3.5 w-3.5" />
-                    {product.category}
-                  </div>
-                  {product.prescriptionRequired && (
-                    <div className="absolute top-5 right-5 inline-flex items-center gap-1 rounded-full bg-red-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
-                      Rx Prescription
+                    {/* Category + Rx */}
+                    <div className="absolute top-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-grafian-blue-deep shadow-sm">
+                      <Icon className="h-3.5 w-3.5" />
+                      {product.category}
                     </div>
-                  )}
+                    {product.prescriptionRequired && (
+                      <div className="absolute top-5 right-5 inline-flex items-center gap-1 rounded-full bg-red-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
+                        Rx Prescription
+                      </div>
+                    )}
 
-                  {/* Mock medicine box design */}
-                  <div className="absolute inset-x-8 bottom-8 text-white">
-                    <div className="text-[11px] font-medium uppercase tracking-[0.25em] opacity-80 mb-1.5">
-                      {product.genericName}
-                    </div>
-                    <div className="text-3xl md:text-4xl font-black leading-none drop-shadow-sm mb-2">
-                      {product.brandName}
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 rounded-md bg-white/15 backdrop-blur px-3 py-1 text-sm font-semibold">
-                      <PackageCheck className="h-4 w-4" />
-                      Strength: {product.strength}
+                    {/* Mock medicine box design */}
+                    <div className="absolute inset-x-8 bottom-8 text-white">
+                      <div className="text-[11px] font-medium uppercase tracking-[0.25em] opacity-80 mb-1.5">
+                        {product.genericName}
+                      </div>
+                      <div className="text-3xl md:text-4xl font-black leading-none drop-shadow-sm mb-2">
+                        {product.brandName}
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 rounded-md bg-white/15 backdrop-blur px-3 py-1 text-sm font-semibold">
+                        <PackageCheck className="h-4 w-4" />
+                        Strength: {product.strength}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Action buttons */}
@@ -611,3 +624,4 @@ function generateProductPdfHtml(product: ReturnType<typeof getProductBySlug>): s
 </body>
 </html>`;
 }
+export default ProductDetailsPage;

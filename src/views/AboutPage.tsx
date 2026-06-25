@@ -49,7 +49,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="relative overflow-hidden gradient-hero-radial py-16 md:py-24">
+      <section className="relative overflow-hidden gradient-hero-radial pt-12 md:pt-16 pb-16 md:pb-24">
         <div className="absolute inset-0 pattern-grid opacity-50" />
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-grafian-blue-200/30 blur-3xl animate-blob" />
         <div className="container mx-auto px-4 relative">
@@ -107,12 +107,16 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="flex justify-center"
             >
-              <div className="relative">
-                <Logo className="h-[28rem] md:h-[36rem] w-auto" priority />
+              <div className="flex flex-col items-center">
+                <div className="rounded-[2rem] overflow-hidden border border-white/80 bg-white/95 shadow-[0_24px_80px_rgba(15,23,42,0.12)]">
+                  <div className="p-6 md:p-8">
+                    <Logo className="h-72 md:h-84 w-auto" priority />
+                  </div>
+                </div>
                 <motion.div
-                  animate={{ y: [0, -8, 0] }}
+                  animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -bottom-5 -right-5 rounded-2xl bg-white shadow-pharma px-4 py-3 flex items-center gap-2"
+                  className="mt-4 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl px-4 py-3 flex items-center gap-2 max-w-[260px]"
                 >
                   <Award className="h-6 w-6 text-grafian-blue-mid" />
                   <div>
@@ -349,3 +353,5 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
     </div>
   );
 }
+
+export default AboutPage;

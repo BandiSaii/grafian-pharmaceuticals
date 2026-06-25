@@ -26,7 +26,8 @@ export function Logo({ variant = 'light', className = '', priority = false }: Lo
         fill
         priority={priority}
         sizes="(max-width: 768px) 500px, 700px"
-        className="object-contain"
+        quality={100}
+        className="object-contain drop-shadow-[0_20px_60px_rgba(15,23,42,0.16)]"
       />
     </div>
   );

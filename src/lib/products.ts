@@ -14,6 +14,9 @@ export interface Product {
   storage: string;
   category: ProductCategory;
   prescriptionRequired: boolean;
+  // Optional local image asset for product packaging
+  image?: string;
+  imageAlt?: string;
   // Visual identity for the CSS-rendered product card
   cardColor: string; // primary accent color for the box design
   cardColor2: string; // secondary accent color
@@ -65,6 +68,38 @@ export const categoryIcons: Record<ProductCategory, string> = {
   'General Care': 'leaf',
 };
 
+const normalizeProductImageKey = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ');
+
+const productImageFiles = [
+  'TERYN 40 MG.jpeg',
+  'TERYN H 40 MG.jpeg',
+  'ROJUTRI 10 MG.jpeg',
+  'ROJUTRI 20 MG.jpeg',
+  'ROJUTRI F 10.jpeg',
+  'ROJUTRI CV 10 MG.jpeg',
+  'ROJUTRI CV 20 MG.jpeg',
+  'ROJUTRI GOLD 10 MG.jpeg',
+  'ROJUTRI GOLD 20 MG.jpeg',
+  'GUNAA M1.jpeg',
+  'GUNAA M2.jpeg',
+  'MONEE LC.jpeg',
+  'Panorun D.jpg',
+];
+
+const productImageLookup = new Map<string, string>(
+  productImageFiles.map((fileName) => {
+    const baseName = fileName.replace(/\.[^/.]+$/, '');
+    return [normalizeProductImageKey(baseName), `/uploads/medicin/medicin pics/${fileName}`] as const;
+  })
+);
+
+const getProductImageByName = (brandName: string) => productImageLookup.get(normalizeProductImageKey(brandName));
+
 export const products: Product[] = [
   // ============ CARDIAC CARE ============
   {
@@ -85,6 +120,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e40af',
     cardColor2: '#3b82f6',
+    image: getProductImageByName('TERYN 40 MG'),
+    imageAlt: 'TERYN 40 MG packaging',
   },
   {
     slug: 'teryn-h-40-mg',
@@ -103,6 +140,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e40af',
     cardColor2: '#0ea5e9',
+    image: getProductImageByName('TERYN H 40 MG'),
+    imageAlt: 'TERYN H 40 MG packaging',
   },
   {
     slug: 'teryn-am-40-mg',
@@ -243,10 +282,12 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1d4ed8',
     cardColor2: '#60a5fa',
+    image: getProductImageByName('ROJUTRI 10 MG'),
+    imageAlt: 'ROJUTRI 10 MG packaging',
   },
   {
-    slug: 'rojutri-20-mr',
-    brandName: 'ROJUTRI 20 MR',
+    slug: 'rojutri-20-mg',
+    brandName: 'ROJUTRI 20 MG',
     genericName: 'Rosuvastatin Modified-Release Tablets',
     composition: 'Rosuvastatin 20 mg (Modified Release)',
     strength: '20 mg',
@@ -260,6 +301,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e3a8a',
     cardColor2: '#3b82f6',
+    image: getProductImageByName('ROJUTRI 20 MG'),
+    imageAlt: 'ROJUTRI 20 MG packaging',
   },
   {
     slug: 'rojutri-f-10',
@@ -277,6 +320,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1d4ed8',
     cardColor2: '#0ea5e9',
+    image: getProductImageByName('ROJUTRI F 10'),
+    imageAlt: 'ROJUTRI F 10 packaging',
   },
   {
     slug: 'rojutri-cv-10-mg',
@@ -295,6 +340,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e3a8a',
     cardColor2: '#3b82f6',
+    image: getProductImageByName('ROJUTRI CV 10 MG'),
+    imageAlt: 'ROJUTRI CV 10 MG packaging',
   },
   {
     slug: 'rojutri-cv-20-mg',
@@ -312,6 +359,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e40af',
     cardColor2: '#2563eb',
+    image: getProductImageByName('ROJUTRI CV 20 MG'),
+    imageAlt: 'ROJUTRI CV 20 MG packaging',
   },
   {
     slug: 'rojutri-gold-10-mg',
@@ -329,6 +378,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e3a8a',
     cardColor2: '#3b82f6',
+    image: getProductImageByName('ROJUTRI GOLD 10 MG'),
+    imageAlt: 'ROJUTRI GOLD 10 MG packaging',
   },
   {
     slug: 'rojutri-gold-20-mg',
@@ -346,6 +397,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#1e40af',
     cardColor2: '#1d4ed8',
+    image: getProductImageByName('ROJUTRI GOLD 20 MG'),
+    imageAlt: 'ROJUTRI GOLD 20 MG packaging',
   },
 
   // ============ DIABETIC CARE ============
@@ -365,6 +418,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#0e7490',
     cardColor2: '#22d3ee',
+    image: getProductImageByName('GUNAA M1'),
+    imageAlt: 'GUNAA M1 packaging',
   },
   {
     slug: 'gunaa-m2',
@@ -382,6 +437,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#155e75',
     cardColor2: '#06b6d4',
+    image: getProductImageByName('GUNAA M2'),
+    imageAlt: 'GUNAA M2 packaging',
   },
   {
     slug: 'gunaa-mv1',
@@ -509,7 +566,7 @@ export const products: Product[] = [
   // ============ PPI ============
   {
     slug: 'panorun-d',
-    brandName: 'Panorun D',
+    brandName: 'PANORUN D',
     genericName: 'Pantoprazole & Domperidone Capsules',
     composition: 'Pantoprazole 40 mg + Domperidone 30 mg (Sustained Release)',
     strength: '40 mg / 30 mg',
@@ -523,6 +580,8 @@ export const products: Product[] = [
     prescriptionRequired: true,
     cardColor: '#b45309',
     cardColor2: '#f59e0b',
+    image: getProductImageByName('PANORUN D'),
+    imageAlt: 'PANORUN D packaging',
   },
 
   // ============ ANTIBIOTIC ============

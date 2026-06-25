@@ -55,13 +55,13 @@ export function Header({ route, navigate }: HeaderProps) {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-pharma border-b border-grafian-blue-100'
-          : 'bg-white border-b border-grafian-blue-100/60'
+          ? 'bg-white/98 backdrop-blur-xl shadow-2xl'
+          : 'bg-white/99'
       )}
     >
       {/* Slim top utility strip — phone + email + certifications only */}
       <div className="hidden md:block bg-gradient-to-r from-grafian-blue-deep via-grafian-blue to-grafian-blue-mid text-white">
-        <div className="container mx-auto px-4 flex items-center justify-between h-7 text-[12px]">
+        <div className="container mx-auto px-4 flex items-center justify-between h-8 text-[12px]">
           <div className="flex items-center gap-5">
             <a href={`tel:${company.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-1.5 hover:text-grafian-blue-light transition-colors">
               <Phone className="h-3 w-3" /> {company.phones.join('  •  ')}
@@ -119,14 +119,6 @@ export function Header({ route, navigate }: HeaderProps) {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-
-            <button
-              onClick={() => handleNav('/contact')}
-              className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-grafian-blue-deep to-grafian-blue-mid px-5 py-2.5 text-[14px] font-semibold text-white shadow-pharma transition-all hover:shadow-pharma-lg hover:-translate-y-0.5"
-            >
-              Enquire Now
-              <ChevronRight className="h-4 w-4" />
-            </button>
           </div>
 
           {/* Mobile trigger */}
