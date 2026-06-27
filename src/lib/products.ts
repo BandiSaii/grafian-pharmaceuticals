@@ -558,6 +558,8 @@ export const products: Product[] = [
     packaging: 'Alu-Alu blister pack of 10 tablets; 10 blisters per carton.',
     storage: 'Store below 25°C. Protect from moisture and light. Keep out of reach of children.',
     category: 'Anti Allergy',
+    image: getProductImageByName('MONEE LC'),
+    imageAlt: 'MONEE LC packaging',
     prescriptionRequired: true,
     cardColor: '#0d9488',
     cardColor2: '#2dd4bf',
