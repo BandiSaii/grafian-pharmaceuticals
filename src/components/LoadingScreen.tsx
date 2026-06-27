@@ -35,7 +35,7 @@ export function LoadingScreen({ show }: LoadingScreenProps) {
               animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Logo className="h-32 md:h-44 w-auto" priority />
+              <Logo className="h-40 md:h-56 w-auto" priority />
             </motion.div>
 
             {/* Slim progress bar — fast fill */}

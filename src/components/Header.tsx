@@ -80,18 +80,17 @@ export function Header({ route, navigate }: HeaderProps) {
 
       {/* Main nav — compact height, logo fills most of the header */}
       <div className="container mx-auto px-3">
-        <div className="flex items-center justify-between h-20 md:h-24 gap-4">
+        <div className="flex items-center justify-between h-24 md:h-24 gap-4">
           {/* Logo — fills 85% of header height, minimal padding */}
           <button
             onClick={() => handleNav('/')}
             className="flex items-center shrink-0 transition-transform hover:scale-[1.02]"
             aria-label="Grafian Pharmaceuticals home"
           >
-            {/* Logo height = header height minus small padding. h-17 = 68px, h-21 = 84px */}
-            <Logo className="h-[68px] md:h-[84px] w-auto" priority />
+              {/* Logo height fits the header and is slightly larger without overflowing */}
+              <Logo className="h-16 md:h-18 lg:h-20 w-auto" priority />
           </button>
 
-          {/* Desktop nav — compact, well-aligned with logo center */}
           <div className="hidden lg:flex items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList>
@@ -142,7 +141,7 @@ export function Header({ route, navigate }: HeaderProps) {
               <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white p-0">
                 <SheetHeader className="border-b border-grafian-blue-100 p-4">
                   <SheetTitle className="flex items-center justify-between">
-                    <Logo className="h-[68px] w-auto" />
+                      <Logo className="h-[84px] w-auto" />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col p-3">

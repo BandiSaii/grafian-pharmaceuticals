@@ -108,11 +108,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               className="flex justify-center"
             >
               <div className="flex flex-col items-center">
-                <div className="rounded-[2rem] overflow-hidden border border-white/80 bg-white/95 shadow-[0_24px_80px_rgba(15,23,42,0.12)]">
-                  <div className="p-6 md:p-8">
-                    <Logo className="h-72 md:h-84 w-auto" priority />
-                  </div>
-                </div>
+                <Logo className="h-80 md:h-[400px] w-auto" priority />
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}

@@ -70,36 +70,26 @@ export function HomePage({ route, navigate }: HomePageProps) {
   return (
     <div className="flex flex-col">
       {/* ============ HERO ============ */}
-      <section
-        className="relative overflow-hidden gradient-hero-radial"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(241,245,249,0.95) 35%, rgba(241,245,249,0.8) 65%, rgba(255,255,255,0.6) 100%)",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center right',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        {/* Decorative background */}
+      <section className="relative overflow-hidden bg-white min-h-[680px]">
+        {/* Full-hero background image */}
         <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "url('/uploads/pasted_image_1782310779361.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center right',
-              opacity: 0.11,
-              filter: 'contrast(0.85) brightness(1.05) blur(1px)',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/0" />
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src="/uploads/manifact.jpg"
+              alt="Pharmaceutical laboratory"
+              className="h-full w-full object-cover"
+              style={{
+                objectPosition: '75% center',
+                filter: 'contrast(1.05) saturate(1.0) brightness(1.04)',
+              }}
+            />
+            <div className="absolute inset-0 bg-sky-900/12" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20" />
+          </div>
         </div>
-        <div className="pointer-events-none absolute inset-0 pattern-grid opacity-60" />
-        <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-grafian-blue-200/30 blur-3xl animate-blob" />
-        <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-grafian-blue-100/40 blur-3xl animate-blob" style={{ animationDelay: '3s' }} />
 
-        <div className="container mx-auto px-4 pt-6 md:pt-10 pb-16 md:pb-24 relative">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="container mx-auto px-4 pt-8 md:pt-10 pb-10 md:pb-12 relative z-10">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(360px,45%)_minmax(420px,55%)]">
             {/* Left: Logo + headline */}
             <div className="flex flex-col items-start text-left">
               {/* Logo prominent display - per user request: only display the company logo in hero */}
@@ -107,9 +97,10 @@ export function HomePage({ route, navigate }: HomePageProps) {
                 initial={{ opacity: 0, scale: 0.92, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative mb-8"
+                className="relative mb-8 bg-transparent border-none shadow-none p-0"
+                style={{ backgroundColor: 'transparent' }}
               >
-                <Logo className="h-64 md:h-80 w-auto" priority />
+                <Logo className="h-40 md:h-30 lg:h-70 w-auto" priority />
               </motion.div>
 
               <motion.div
@@ -258,7 +249,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-0 right-8 rounded-3xl glass-card px-4 py-3 flex items-center gap-3 border border-white/70 z-10"
+                className="absolute top-0 right-18 rounded-3xl glass-card px-4 py-3 flex items-center gap-3 border border-white/70 z-10"
               >
                 <div className="h-12 w-12 rounded-full bg-white p-1 shadow-pharma flex items-center justify-center shrink-0">
                   <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-full w-full object-contain" />

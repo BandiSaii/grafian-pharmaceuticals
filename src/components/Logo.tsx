@@ -10,15 +10,15 @@ interface LogoProps {
 
 /**
  * Grafian Pharmaceuticals logo.
- * Uses the transparent PNG (alpha channel) — just the green tree icon
- * and orange "Grafian Pharmaceuticals™" text, no background fill.
+ * Uses the transparent `logo-white.png` asset from the public folder.
+ * The logo image itself retains its original colors and typography with no white background fill.
  * Sits naturally on any background color (white nav, dark footer, gradient hero, etc.).
  */
 export function Logo({ variant = 'light', className = '', priority = false }: LogoProps) {
   return (
     <div
-      className={`relative ${className}`}
-      style={{ aspectRatio: '585 / 348' }}
+      className={`relative ${className} bg-transparent border-none shadow-none p-0`}
+      style={{ aspectRatio: '585 / 348', backgroundColor: 'transparent' }}
     >
       <Image
         src="/logo-white.png"
@@ -27,7 +27,8 @@ export function Logo({ variant = 'light', className = '', priority = false }: Lo
         priority={priority}
         sizes="(max-width: 768px) 500px, 700px"
         quality={100}
-        className="object-contain drop-shadow-[0_20px_60px_rgba(15,23,42,0.16)]"
+        className="object-contain"
+        style={{ backgroundColor: 'transparent' }}
       />
     </div>
   );
