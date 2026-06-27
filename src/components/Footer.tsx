@@ -43,7 +43,7 @@ export function Footer({ route, navigate }: FooterProps) {
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-4 text-center md:text-left">
-            <div className="mx-auto md:mx-0 flex w-full max-w-[220px] items-center justify-center rounded-none bg-transparent p-0 shadow-none md:max-w-[280px] md:rounded-[22px] md:bg-white md:p-4 md:shadow-pharma">
+            <div className="mx-auto flex w-full max-w-[220px] items-center justify-center rounded-[20px] bg-white p-4 shadow-pharma sm:max-w-[240px] md:mx-0 md:max-w-[280px] md:rounded-[22px] md:bg-white md:p-4 md:shadow-pharma">
               <img
                 src="/uploads/logo-white.backup.png"
                 alt="Grafian Pharmaceuticals"

@@ -158,6 +158,76 @@ export function HomePage({ route, navigate }: HomePageProps) {
                   );
                 })}
               </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.5 }}
+                className="mt-6 flex w-full max-w-xl flex-col gap-3 md:hidden"
+              >
+                {[
+                  {
+                    title: 'Cardiac Care',
+                    subtitle: '16 Formulations',
+                    text: 'Complete anti-hypertensive & lipid-lowering portfolio covering TERYN & ROJUTRI ranges.',
+                    icon: Heart,
+                    iconClass: 'bg-red-50 text-red-600',
+                  },
+                  {
+                    title: 'Diabetic Care',
+                    subtitle: '8 Formulations',
+                    text: 'GUNAA & SIPIN ranges combining glimepiride, sitagliptin, metformin and voglibose.',
+                    icon: Droplet,
+                    iconClass: 'bg-cyan-50 text-cyan-700',
+                  },
+                  {
+                    title: 'Multivitamins',
+                    subtitle: 'STROBIC Range',
+                    text: 'Neuro-nutrient complexes, 4G vitality blend and high-strength Vitamin D3.',
+                    icon: Sparkles,
+                    iconClass: 'bg-green-50 text-green-700',
+                  },
+                  {
+                    title: 'WHO-GMP',
+                    subtitle: 'Certified',
+                    text: 'Manufacturing quality systems aligned to global standards and rigorous release testing.',
+                    icon: null,
+                    iconClass: '',
+                  },
+                ].map((card, index) => {
+                  const CardIcon = card.icon;
+                  return (
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.05 + index * 0.06, duration: 0.4 }}
+                      className="w-full rounded-2xl border border-white/70 bg-white/80 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.12)] backdrop-blur"
+                    >
+                      <div className="flex items-center gap-3">
+                        {card.title === 'WHO-GMP' ? (
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1 shadow-sm">
+                            <img src="/certificates/who-gmp.png" alt="WHO-GMP" className="h-full w-full object-contain" />
+                          </div>
+                        ) : (
+                          <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${card.iconClass}`}>
+                            <CardIcon className="h-5 w-5 fill-current" />
+                          </div>
+                        )}
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                            {card.title}
+                          </div>
+                          <div className="font-bold text-slate-900">{card.subtitle}</div>
+                        </div>
+                      </div>
+                      <div className="mt-3 text-sm leading-relaxed text-slate-600">
+                        {card.text}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
             </div>
 
             {/* Right: Floating cards composition with background image */}
