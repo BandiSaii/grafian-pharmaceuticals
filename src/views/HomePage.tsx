@@ -92,26 +92,9 @@ export function HomePage({ route, navigate }: HomePageProps) {
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(360px,45%)_minmax(420px,55%)]">
             {/* Left: Logo + headline */}
             <div className="flex flex-col items-start text-left">
-              {/* Logo prominent display - per user request: only display the company logo in hero */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.92, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative mb-8 bg-transparent border-none shadow-none p-0"
-                style={{ backgroundColor: 'transparent' }}
-              >
-                <Logo className="h-40 md:h-30 lg:h-70 w-auto" priority />
-              </motion.div>
+              
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-semibold text-grafian-blue-deep border border-grafian-blue-200 mb-5"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-                WHO-GMP & ISO 9001:2015 Certified Manufacturer
-              </motion.div>
+              
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -262,12 +245,6 @@ export function HomePage({ route, navigate }: HomePageProps) {
           </div>
         </div>
 
-        {/* Bottom wave divider */}
-        <div className="relative">
-          <svg viewBox="0 0 1440 80" className="w-full h-[40px] md:h-[60px] block" preserveAspectRatio="none">
-            <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,30 1440,40 L1440,80 L0,80 Z" fill="white" />
-          </svg>
-        </div>
       </section>
 
       {/* ============ THERAPEUTIC SEGMENTS ============ */}

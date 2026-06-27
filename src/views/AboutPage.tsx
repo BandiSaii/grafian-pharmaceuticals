@@ -49,7 +49,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="relative overflow-hidden gradient-hero-radial pt-12 md:pt-16 pb-16 md:pb-24">
+      <section className="relative overflow-hidden gradient-hero-radial pt-12 md:pt-16 pb-10 md:pb-16">
         <div className="absolute inset-0 pattern-grid opacity-50" />
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-grafian-blue-200/30 blur-3xl animate-blob" />
         <div className="container mx-auto px-4 relative">
@@ -108,7 +108,7 @@ export function AboutPage({ route, navigate }: AboutPageProps) {
               className="flex justify-center"
             >
               <div className="flex flex-col items-center">
-                <Logo className="h-80 md:h-[400px] w-auto" priority />
+                <Logo className="w-32 h-auto max-w-full object-contain sm:w-40 md:w-auto md:h-[400px]" priority />
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
