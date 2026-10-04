@@ -121,6 +121,9 @@ export function ContactPage({ route, navigate }: ContactPageProps) {
                 </div>
                 <div className="text-[11px] font-bold uppercase tracking-wider text-grafian-blue-mid mb-1.5">Call Us</div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2.5">Phone</h3>
+                <p className="mb-3 text-sm font-medium text-slate-700">
+                  Contact Person: <span className="text-grafian-blue-deep">{company.contactPerson}</span>
+                </p>
                 <div className="space-y-1.5">
                   {company.phones.map((p) => (
                     <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block text-sm text-slate-700 hover:text-grafian-blue-deep font-semibold transition-colors">

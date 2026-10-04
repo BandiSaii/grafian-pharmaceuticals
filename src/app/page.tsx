@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from '@/lib/router';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { HomePage } from '@/views/HomePage';
 import { AboutPage } from '@/views/AboutPage';
@@ -57,8 +56,6 @@ export default function Home() {
       <main className="flex-1">{renderPage()}</main>
 
       <Footer route={route} navigate={navigate} />
-
-      <WhatsAppButton />
 
       {/* Sonner toast notifications */}
       <Toaster position="top-right" richColors closeButton />

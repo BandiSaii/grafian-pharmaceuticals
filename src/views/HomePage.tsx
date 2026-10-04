@@ -211,7 +211,7 @@ export function HomePage({ route, navigate }: HomePageProps) {
                           </div>
                         ) : (
                           <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${card.iconClass}`}>
-                            <CardIcon className="h-5 w-5 fill-current" />
+                          <CardIcon className="h-5 w-5 fill-current" />
                           </div>
                         )}
                         <div>

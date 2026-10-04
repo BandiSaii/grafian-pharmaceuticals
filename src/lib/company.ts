@@ -2,6 +2,7 @@
 
 export const company = {
   name: 'Grafian Pharmaceuticals',
+  contactPerson: 'V Satyanarayana',
   tagline: 'Committed to Quality Healthcare',
   description:
     'Grafian Pharmaceuticals is a Hyderabad-based pharmaceutical company dedicated to delivering high-quality, evidence-based formulations across cardiovascular, diabetic, and general care segments. Our mission is to make trusted medicines accessible to doctors, distributors and healthcare professionals across India.',
@@ -13,10 +14,10 @@ export const company = {
     pincode: '500013',
     country: 'India',
   },
-  phones: ['040 3559 6921', '6300 175 878'],
+  phones: ['+91 75698 97122'],
   emails: ['grafianpharma@yahoo.com'],
   mapQuery: 'Ramanthapur, Hyderabad, Telangana 500013',
-  whatsapp: '916300175878', // WhatsApp number with country code, no +
+  whatsapp: '917569897122', // WhatsApp number with country code, no +
   established: '2023',
   social: {
     facebook: '#',
